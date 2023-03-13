@@ -2,7 +2,7 @@ import { ErrorMessage, Field } from "formik";
 import React from "react";
 import TextError from "../TextError";
 
-function Radio(props) {
+function CheckGroupe(props) {
   const { name, label, options, ...rest } = props;
   return (
     <div>
@@ -14,10 +14,10 @@ function Radio(props) {
               <React.Fragment key={option.value}>
                 <input
                   id={option.value}
-                  type="radio"
+                  {...rest}
                   {...field}
                   value={option.value}
-                  checked={field.value === option.value}
+                  checked={field.value.includes(option.value)}
                 />
                 <label htmlFor={option.value}>{option.key}</label>
               </React.Fragment>
@@ -30,4 +30,4 @@ function Radio(props) {
   );
 }
 
-export default Radio;
+export default CheckGroupe;

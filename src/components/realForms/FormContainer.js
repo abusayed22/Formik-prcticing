@@ -10,6 +10,8 @@ function FormContainer(props) {
         description: "",
         selectOptions:"",
         radioSelect: "",
+        areChecking: [],
+        birthDate: null
     };
     const onSubmit = (value) => {
         console.log("from data", value);
@@ -19,7 +21,9 @@ function FormContainer(props) {
         name: yup.string().required("please entre your name"),
         description: yup.string().required('required!'),
         selectOptions: yup.string().required('required!'),
-        radioSelect: yup.string().required('required!')
+        radioSelect: yup.string().required('required!'),
+        areChecking: yup.array().required('required!'),
+        birthDate: yup.date().required('requried!').nullable()
     });
     const dropDownOptions =  [
         { key: 'Select an option', value: '' },
@@ -31,6 +35,11 @@ function FormContainer(props) {
         { key: 'Option 1', value: 'ROption1' },
         { key: 'Option 2', value: 'ROption2' },
         { key: 'Option 3', value: 'ROption3' }
+      ]
+    const checkboxOptions =  [
+        { key: 'Option 1', value: 'cOption1' },
+        { key: 'Option 2', value: 'cOption2' },
+        { key: 'Option 3', value: 'cOption3' }
       ]
 
     return (
@@ -78,6 +87,20 @@ function FormContainer(props) {
                             type="radio"
                             name="radioSelect"
                             options={radioOptions}
+                        />
+                        <br />
+                        <FormController
+                            control='checkbox'
+                            label='Select one:'
+                            type="checkbox"
+                            name="areChecking"
+                            options={checkboxOptions}
+                        />
+                        <br />
+                        <FormController 
+                        control="dat"
+                        label="Birth Day:"
+                        name="birthDay"
                         />
                         <br />
                         <button type="submit">Submit</button>
