@@ -2,6 +2,7 @@ import React from 'react';
 import InputFormik from './InputFormik';
 import Textarea from './Textarea';
 import Select from './Select';
+import Radio from './Radio';
 
 function FormController(props) {
     const {control,...rest} = props
@@ -13,6 +14,7 @@ function FormController(props) {
             case 'select':
                 return <Select {...rest}/>
             case 'radio':
+                return <Radio {...rest} />
             case 'checkbox':
             case 'date':
                 

@@ -8,7 +8,8 @@ function FormContainer(props) {
         email: "",
         name: "",
         description: "",
-        selectOptions:""
+        selectOptions:"",
+        radioSelect: "",
     };
     const onSubmit = (value) => {
         console.log("from data", value);
@@ -17,13 +18,19 @@ function FormContainer(props) {
         email: yup.string().required("required!").email('Email'),
         name: yup.string().required("please entre your name"),
         description: yup.string().required('required!'),
-        selectOptions: yup.string().required('required!')
+        selectOptions: yup.string().required('required!'),
+        radioSelect: yup.string().required('required!')
     });
     const dropDownOptions =  [
         { key: 'Select an option', value: '' },
         { key: 'Option 1', value: 'option1' },
         { key: 'Option 2', value: 'option2' },
         { key: 'Option 3', value: 'option3' }
+      ]
+    const radioOptions =  [
+        { key: 'Option 1', value: 'ROption1' },
+        { key: 'Option 2', value: 'ROption2' },
+        { key: 'Option 3', value: 'ROption3' }
       ]
 
     return (
@@ -63,6 +70,14 @@ function FormContainer(props) {
                             type="select"
                             name="selectOptions"
                             options={dropDownOptions}
+                        />
+                        <br />
+                        <FormController
+                            control='radio'
+                            label='Select one:'
+                            type="radio"
+                            name="radioSelect"
+                            options={radioOptions}
                         />
                         <br />
                         <button type="submit">Submit</button>
