@@ -5,7 +5,10 @@ import FormController from "./FormController";
 
 function FormContainer(props) {
     const initialValues = {
+        email: "",
         name: "",
+        description: "",
+        selectOptions:""
     };
     const onSubmit = (value) => {
         console.log("from data", value);
@@ -13,9 +16,16 @@ function FormContainer(props) {
     const validationSchema = yup.object({
         email: yup.string().required("required!").email('Email'),
         name: yup.string().required("please entre your name"),
-        description: yup.string().required('required!')
+        description: yup.string().required('required!'),
+        selectOptions: yup.string().required('required!')
     });
-    
+    const dropDownOptions =  [
+        { key: 'Select an option', value: '' },
+        { key: 'Option 1', value: 'option1' },
+        { key: 'Option 2', value: 'option2' },
+        { key: 'Option 3', value: 'option3' }
+      ]
+
     return (
         <div className="mx-auto w-96">
             <Formik
@@ -45,6 +55,14 @@ function FormContainer(props) {
                             label='Description:'
                             type="text"
                             name="description"
+                        />
+                        <br />
+                        <FormController
+                            control='select'
+                            label='Select tag:'
+                            type="select"
+                            name="selectOptions"
+                            options={dropDownOptions}
                         />
                         <br />
                         <button type="submit">Submit</button>
