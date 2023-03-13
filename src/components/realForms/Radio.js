@@ -9,7 +9,7 @@ function Radio(props) {
       <label htmlFor={name}>{label}</label>
       <Field name={name} {...rest}>
         {({ field }) => {
-         return options.map((option) => {
+         return options?.map((option) => {
             return (
               <React.Fragment key={option.value}>
                 <input
