@@ -10,27 +10,9 @@ function OldRegister() {
   };
   const onSubmit = (value) => {
     console.log(value);
+    console.log('hello');
   };
-  const validate = (value) => {
-    let error = {};
-    // name validate
-    if (!value.name) {
-      error.name = "Required";
-    }
-
-    // email validate
-    if (!value.email) {
-      error.email = "Required";
-    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value.email)) {
-      error.email = "invalid email";
-    }
-
-    if (!value.password) {
-      error.password = "Required";
-    }
-    console.log(error);
-    return error;
-  };
+  
 
   // yup schema
   const validationSchema = yup.object({
@@ -45,7 +27,7 @@ function OldRegister() {
     <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
-        onSubmit={onsubmit}
+        onSubmit={onSubmit}
     >
       <Form>
         <div>

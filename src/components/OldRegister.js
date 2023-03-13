@@ -9,7 +9,7 @@ function OldRegister() {
         password: ''
     };
     const onSubmit = (value) => {
-        console.log(value);
+        // console.log(value);
     }
     const validate = (value) => {
         let error = {};
@@ -28,7 +28,7 @@ function OldRegister() {
             if (!value.password) {
                 error.password = 'Required'
             }
-            console.log(error);
+            // console.log(error);
             return error;
     }
 
@@ -46,7 +46,7 @@ function OldRegister() {
         validationSchema   //TODO: validation with yup lib
     })
     
-    console.log('visited indivisul' , formik.touched);
+    // console.log('visited indivisul' , formik.touched);
 
 
     return (<div style={{ width: '300px', height: "70vh", }}>
